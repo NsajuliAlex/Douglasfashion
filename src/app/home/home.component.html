@@ -1,0 +1,297 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <!-- navbar items, navbar burger... -->
+    <a class="navbar-item">
+      <img src="assets/images/logo_douglas_black.svg" width="112" height="28">
+      <!--Nav Bar douglas Logo-->
+    </a>
+  </div>
+
+</nav>
+
+<!-- top div  -->
+<section class="hero hero-image">
+  <div class="hero-body ">
+    <div class="container ">
+      <div class="columns">
+        <div class="column is-5 ">
+          <h1 class="title has-text-white is-size-1 aboutTitle">
+            {{aboutUs.title}}
+          </h1>
+          <hr>
+
+
+          <p class="subtitle has-text-white aboutDescription" *ngFor=" let description of aboutUs.Descriptions">
+            <!-- <figure class="image is-32x32">
+                  <img src="assets/images/arrow_green.svg">
+                </figure>--> {{description.desc}}
+          </p>
+          <a class="button is-large is-white"><b>WIL DABEI SEIN</b></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero map-image">
+  <div class="container products">
+    <div class="box productsBackground">
+      <section class="hero ">
+        <div class="hero-body ">
+          <div class="columns">
+            <div class="column is-4">
+              <h1 class="is-size-4 ">
+                <b>{{upperProducts.upperTitle}}</b>
+              </h1>
+              <hr style="margin-top:5px;">
+            </div>
+
+            <!-- Section with some icons and description -->
+            <div class="column">
+              <div class="columns" *ngFor="let upperProduct of upperProducts.productList">
+                <article class="media">
+                  <figure class="media-left">
+                    <p class="image is-64x64">
+                      <img [src]="upperProduct.icon">
+                    </p>
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        {{upperProduct.description}}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+            <div class="column">
+              <div class="columns">
+                <article class="media">
+                  <figure class="media-left">
+                    <p class="image is-64x64">
+                      <img src="assets/images/icons/web_presentation_style.svg">
+                    </p>
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.vestibulum ut. Maecenas .
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="columns">
+                <article class="media">
+                  <figure class="media-left">
+                    <p class="image is-64x64">
+                      <img src="assets/images/icons/newsletter_style.svg">
+                    </p>
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.vestibulum ut. Maecenas .
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    <div class="column is-half
+  is-offset-one-quarter is-offset-two-quarter-tablet has-text-centered " style="margin-top:80px; margin-bottom:80px;">
+      <div class="box">
+        <p class="subtitle is-size-4">
+          Neue Kunden aus Ihrer Nachbarschaft! Sehen Sie Selbst Wie Viele Douglas-Kinded es in Ihrer Nachbarschaft gibt
+        </p>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="Ihre Postleitzahl">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Div behind the form -->
+    <div class="box column is-7 behindDiv">
+      <div class="hero-body ">
+        <div class="container ">
+          <div class="columns">
+            <div class="column is-5-desktop">
+              <h3 class="title ">
+                SIE WOLLEN DABEL SEIN UND NEUE KUNDEN GEWINNEN
+              </h3>
+              <hr>
+              <P>
+                Verein Sie ein kostenloses Beratungsgesprach
+              </P>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section with form and form image starts here -->
+    <div class="columns">
+      <div class="column is-8
+  is-offset-4">
+        <div class="container" style="margin-top:80px; ">
+          <div class="box formBox">
+            <section class="section">
+              <form [formGroup]="subscribeForm">
+                <div class="columns ">
+                  <div class="column ">
+                    <div class="field  form-group">
+                      <div class="control">
+                        <input class="input form-control" type="text" placeholder="Username" formControlName="Username" [class.is-danger]="subscribeForm.get('Username').invalid &&
+                        subscribeForm.get('Username').touched">
+                        <small [class.is-hidden-touch]="subscribeForm.get('Username').valid || subscribeForm.get('Username').untouched"
+            class="has-text-danger">Username is required</small>
+
+                      </div>
+                    </div>
+                    <!-- this is the form section  starts here-->
+                    <div class="field form-group">
+                      <div class="control ">
+                        <input class="input form-control" type="email" placeholder="Email" formControlName="Email" [class.is-danger]="subscribeForm.get('Email').invalid &&
+                        subscribeForm.get('Email').touched"> 
+                        <div *ngIf="subscribeForm.get('Email').invalid && subscribeForm.get('Email').touched">
+                        <small [class.is-hidden-touch]="subscribeForm.get('Email').valid || subscribeForm.get('Email').untouched"
+            class="has-text-danger">Email is required</small>
+          </div>
+                      </div>
+                    </div>
+
+                    <div class="field form-group">
+                      <div class="control">
+                        <input class="input" type="text" placeholder="tel(Optional)" formControlName="Telephone">
+
+                      </div>
+                    </div>
+
+                    <div class="field form-group">
+                      <div class="control">
+                        <label class="checkbox">
+                          <input type="checkbox" formControlName="Subscribe">
+                          I agree to the terms and conditions Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                          Dolor
+                          dignissimos sint, nobis quibusdam, esse, quaerat sequi deleniti atque ad eaque hic! Accusamus
+                          voluptatibus fugiat explicabo, vero odit libero possimus quasi.
+                        </label>
+                      </div>
+                    </div>
+                    <div class="field ">
+                      <div class="control">
+                        <a class="button is-large is-fullwidth is-black">Click to Register</a>
+                      </div>
+                    </div>
+
+                    <!-- this is the form section ends here-->
+                  </div>
+
+                  <div class="column">
+                    <figure class="image is-fullwidth">
+                      <img src="assets/images/shore_demo_sebastian_blank.png">
+                      <!--Form Picture-->
+                    </figure>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Lower Section starts  here-->
+    <section class="hero lowerSection">
+      <div class="hero-body">
+        <div class="container">
+          <div class="column is-half
+        is-offset-one-quarter has-text-centered">
+            <h1 class="title">
+              {{lowerProducts.lowerTitle}}
+            </h1>
+            <p class="subtitle">
+              {{lowerProducts.shortdescription}}
+
+            </p>
+          </div>
+
+          <!-- icons and description area -->
+          <section class="section">
+            <div class="columns">
+              <div class="column is-4-desktop">
+                <div class="columns" *ngFor="let lowerProductList of lowerProducts.productList">
+                  <article class="media">
+                    <figure class="media-left">
+                      <p class="image is-64x64">
+                        <img [src]="lowerProductList.icon">
+                      </p>
+                    </figure>
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          {{lowerProductList.description}}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <a class="button is-large is-fullwidth is-black">Click to Subscribe</a>
+              </div>
+              <div class="column ">
+                <figure class="imageis-1by1">
+                  <img src="assets/images/partnerships_douglas_graphics_01_de.png">
+                </figure>
+              </div>
+            </div>
+          </section>
+          <!-- lower Section ends here -->
+
+        </div>
+      </div>
+    </section>
+    <!-- This is the footer secion -->
+
+  </div>
+
+  <footer class="footer has-text-centered futa">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8-desktop is-9-tablet">
+          <div class="columns">
+            <div class="column">
+
+              <p class="subtitle is-5">
+                AGB und Winderrufsbelehrung </p>
+            </div>
+            <div class="column">
+              <p class="subtitle is-5">
+                Impressum </p>
+            </div>
+            <div class="column">
+              <p class="subtitle is-5">
+                Datenschtz </p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-1-desktop is-2-tablet
+             is-offset-3-desktop is-offset-1-tablet">
+          <figure class="image is-96x96 footerImage">
+            <img src="assets/images/logo_douglas_black.svg">
+          </figure>
+        </div>
+      </div>
+
+    </div>
+
+  </footer>
+
+</section>
